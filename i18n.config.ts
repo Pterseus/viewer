@@ -3,7 +3,6 @@ export default defineI18nConfig(() => ({
   fallbackLocale: 'en',
   messages: {
     en: {
-      index: 'Index',
       en: 'English',
       es: 'Spanish',
       grc: 'Ancient Greek',
@@ -14,7 +13,6 @@ export default defineI18nConfig(() => ({
       'no-content': 'No content found'
     },
     es: {
-      index: 'Índice',
       en: 'Inglés',
       es: 'Español',
       grc: 'Griego anitguo',

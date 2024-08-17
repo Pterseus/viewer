@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxt/content'],
+  modules: ['@nuxt/content', '@nuxtjs/i18n'],
 
   content: {
     sources: {
@@ -16,5 +16,12 @@ export default defineNuxtConfig({
         dir: 'data'
       }
     }
+  },
+
+  i18n: {
+    locales: ['en', 'es', 'ca', 'grc'],
+    strategy: 'prefix',
+    defaultLocale: 'en',
+    customRoutes: 'config'
   }
 })

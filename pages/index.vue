@@ -1,31 +1,33 @@
 <script setup>
-const data = await queryContent('/').find()
+const localePath = useLocalePath()
+const { locale, setLocale, availableLocales } = useI18n()
+const query = {
+  path: '/',
+  where: { language: locale.value }
+}
 </script>
 
 <template>
-  <header>
+  <div>
     <h1>Pterseus</h1>
     <h2>Content viewer</h2>
-  </header>
-  <main>
-    <nav>
-      <ContentNavigation v-slot="{ navigation }">
-        <ul>
-          <li v-for="link of navigation" :key="link._path">
-            {{ link._path }}
-            <ul>
-              <li v-for="link of link.children" :key="link._path">
-                <NuxtLink :to="link._path">{{ link._path }}</NuxtLink>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </ContentNavigation>
-    </nav>
-    <p>
-      <a href="https://github.com/Pterseus/content/tree/main/data"
-        >View on GitHub</a
+  </div>
+  <language-selector />
+  <nav>
+    <ContentList :query="query" v-slot="{ list }">
+      <NuxtLink
+        v-for="item in list"
+        :key="item._id"
+        :to="localePath(`/${item._dir}`)"
+        :style="{ display: 'block' }"
       >
-    </p>
-  </main>
+        {{ item.title }}
+      </NuxtLink>
+    </ContentList>
+  </nav>
+  <p>
+    <a href="https://github.com/Pterseus/content/tree/main/data"
+      >{{ $t('view-on') }} GitHub</a
+    >
+  </p>
 </template>

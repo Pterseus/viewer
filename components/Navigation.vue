@@ -23,7 +23,5 @@ const query = {
 </template>
 
 <style>
-.va-button {
-  color: fuchsia;
-}
+
 </style>

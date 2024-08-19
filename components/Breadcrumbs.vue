@@ -21,10 +21,22 @@ const localePath = useLocalePath()
   border: var(--va-border-width) solid var(--va-border-color);
 
   background-color: black;
-  color: cyan;
 
   a {
-    color: inherit;
+    color: cyan;
+    font-weight: bold;
+    margin-left: calc(var(--va-space-1) * -1);
+    margin-right: calc(var(--va-space-1) * -1);
+    padding: var(--va-space-1);
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    &:active {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
   }
 
   ol,

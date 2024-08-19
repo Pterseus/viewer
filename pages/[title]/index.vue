@@ -33,6 +33,16 @@ header,
 .content {
   padding: var(--va-space-2) var(--va-space-3);
   border: var(--va-border-width) solid var(--va-border-color);
+
+  a {
+    color: inherit
+  }
+
+  > div {
+    max-width: 32rem;
+    text-align: justify;
+    margin: 0 auto;
+  }
 }
 
 header h2 {

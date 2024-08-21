@@ -10,7 +10,15 @@ export default defineI18nConfig(() => ({
       lzh: 'Classic Chinese',
       'back-to-top': 'Back to top of page',
       'view-on': 'View on',
-      'no-content': 'No content found'
+      'edit-on': 'Edit on',
+      'no-content': 'No content found',
+      title: 'Title',
+      author: 'Author',
+      language: 'Language',
+      translator: 'Translator',
+      date: 'Year',
+      source: 'Source'
+
     },
     es: {
       en: 'Inglés',
@@ -20,7 +28,14 @@ export default defineI18nConfig(() => ({
       lzh: 'Chino clásico',
       'back-to-top': 'Volver al inicio de la página',
       'view-on': 'Ver en',
-      'no-content': 'No se ha encontrado contenido'
+      'edit-on': 'Editar en',
+      'no-content': 'No se ha encontrado contenido',
+      title: 'Título',
+      author: 'Autor',
+      language: 'Idioma',
+      translator: 'Traductor',
+      date: 'Año',
+      source: 'Fuente'
     }
   }
 }))

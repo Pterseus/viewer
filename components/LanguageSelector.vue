@@ -5,7 +5,7 @@ const { locale, setLocale, availableLocales } = useI18n()
 
 <template>
   <div class="va-select-group">
-    <label for="lang">Language</label>
+    <label for="lang">{{ $t('language') }}</label>
     <select
       id="lang"
       @change="event => setLocale(event.target.value)"

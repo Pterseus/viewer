@@ -17,7 +17,8 @@ export default defineI18nConfig(() => ({
       language: 'Language',
       translator: 'Translator',
       date: 'Year',
-      source: 'Source'
+      source: 'Source',
+      toc: 'Table of contents'
 
     },
     es: {
@@ -35,7 +36,8 @@ export default defineI18nConfig(() => ({
       language: 'Idioma',
       translator: 'Traductor',
       date: 'Año',
-      source: 'Fuente'
+      source: 'Fuente',
+      toc: 'Índice'
     }
   }
 }))

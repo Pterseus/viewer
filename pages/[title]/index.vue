@@ -3,7 +3,7 @@ const route = useRoute()
 const localePath = useLocalePath()
 const { locale } = useI18n()
 const { title } = route.params
-const data = await queryContent(title as string, locale.value).findOne()
+const { data } =  await useAsyncData('data', () => queryContent(title as string, locale.value).findOne())
 const links = [{ label: 'Viewer', to: 'index' }]
 </script>
 
@@ -15,11 +15,13 @@ const links = [{ label: 'Viewer', to: 'index' }]
     </header>
     <language-selector />
     <NuxtLink
+      v-if="data"
       :to="localePath(`/${data._dir}/metadata`)"
       class="va-button va-button--action"
       >Metadata</NuxtLink
     >
     <NuxtLink
+      v-if="data"
       :to="localePath(`/${data._dir}/toc`)"
       class="va-button va-button--action"
       >{{ $t('toc') }}</NuxtLink
@@ -27,6 +29,7 @@ const links = [{ label: 'Viewer', to: 'index' }]
     <div class="content">
       <span class="label">Content</span>
       <NuxtLink
+        v-if="data"
         :to="`https://github.com/Pterseus/content/edit/main/data/${data._file}`"
         target="_blank"
         class="label edit"

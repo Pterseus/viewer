@@ -18,7 +18,12 @@ const fields = ['title', 'author', 'language', 'translator']
     <template v-for="field in fields">
       <label v-if="data[field]"
         >{{ $t(field) }}
-        <input class="va-input" :value="$t(data[field])" type="text" readonly />
+        <input
+          class="va-input"
+          :value="data[field] === 'language' ? $t(data[field]) : data[field]"
+          type="text"
+          readonly
+        />
       </label>
     </template>
     <label>

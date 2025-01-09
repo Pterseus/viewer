@@ -1,7 +1,5 @@
 <script setup>
-const router = useRouter()
-const { locale, locales } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
+const { locale, setLocale, availableLocales } = useI18n()
 </script>
 
 <template>
@@ -9,11 +7,11 @@ const switchLocalePath = useSwitchLocalePath()
     <label for="lang">{{ $t('language') }}</label>
     <select
       id="lang"
-      @change="event => router.push(switchLocalePath(event.target.value))"
+      @change="event => setLocale(event.target.value)"
       class="va-select"
     >
       <option
-        v-for="availableLocale in locales"
+        v-for="availableLocale in availableLocales"
         :value="availableLocale"
         :selected="locale === availableLocale"
       >

@@ -10,14 +10,14 @@ const query = {
 <template>
   <nav class="va-button-group">
     <ContentList :query="query" v-slot="{ list }">
-      <a
+      <NuxtLink
         v-for="item in list"
         :key="item._id"
-        :href="localePath(`/${item._dir}`)"
+        :to="localePath(`/${item._dir}`)"
         class="va-button va-button--action"
       >
         {{ item.title }}
-      </a>
+      </NuxtLink>
     </ContentList>
   </nav>
 </template>

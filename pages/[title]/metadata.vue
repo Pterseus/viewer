@@ -20,7 +20,7 @@ const fields = ['title', 'author', 'language', 'translator']
         >{{ $t(field) }}
         <input
           class="va-input"
-          :value="data[field] === 'language' ? $t(data[field]) : data[field]"
+          :value="field === 'language' ? $t(data[field]) : data[field]"
           type="text"
           readonly
         />

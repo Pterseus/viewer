@@ -6,6 +6,10 @@
   font-display: swap;
 }
 
+:root {
+  --va-border-width: 2px;
+}
+
 .va-button,
 .va-input {
   box-sizing: border-box;

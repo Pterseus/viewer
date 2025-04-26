@@ -1,20 +1,22 @@
 <script setup lang="ts">
-const route = useRoute();
-const localePath = useLocalePath();
-const { locale } = useI18n();
-const { title } = route.params;
-const data = await queryContent(title as string, locale.value).findOne();
-const links = [{ label: `← ${data.title}`, to: localePath(`/${data._dir}`) }];
+import { getReadingId } from '~/lib/utils'
+const route = useRoute()
+const localePath = useLocalePath()
+const { locale } = useI18n()
+const { title } = route.params
+const { data } = await useAsyncData(route.path, () => {
+  return queryCollection('readings').where('id', 'LIKE', `%${title}%`).where('id', 'LIKE', `%${locale.value}%`).first()
+})
 </script>
 
 <template>
   <div class="va-button-group">
-    <breadcrumbs :links="links" />
+    <breadcrumbs v-if="data" :links="[{ label: `← ${data.title}`, to: localePath(`/${getReadingId(data.path)}`) }]" />
     <header class="page-header">
       <h2>{{ $t('toc') }}</h2>
     </header>
-    <nav v-if="data.body?.toc" class="va-button-group">
-      <NuxtLink class="va-button" v-for="link in data.body.toc.links" :to="localePath(`/${data._dir}#${link.id}`)">{{ link.text }}</NuxtLink>
+    <nav v-if="data?.body?.toc" class="va-button-group">
+      <NuxtLink class="va-button" v-for="link in data.body.toc.links" :to="{ path: localePath(`/${getReadingId(data.path)}`), hash: '#' + link.id }" external>{{ link.text }}</NuxtLink>
     </nav>
   </div>
 </template>

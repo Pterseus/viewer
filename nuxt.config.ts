@@ -12,18 +12,6 @@ export default defineNuxtConfig({
       'postcss-nested': {}
     }
   },
-
-  content: {
-    sources: {
-      github: {
-        driver: 'github',
-        repo: 'Pterseus/content',
-        branch: 'main',
-        dir: 'data'
-      }
-    }
-  },
-
   i18n: {
     vueI18n: './i18n.config.ts',
 
@@ -41,9 +29,9 @@ export default defineNuxtConfig({
         file: 'es.json'
       },
       {
-        code: 'ca',
-        language: 'ca',
-        name: 'Català',
+        code: 'ru',
+        language: 'ru',
+        name: 'Russian',
         file: 'en.json'
       },
       { code: 'grc', language: 'grc', name: 'Ancient Greek', file: 'en.json' }

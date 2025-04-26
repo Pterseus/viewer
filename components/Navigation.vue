@@ -1,24 +1,18 @@
 <script setup>
+import { getReadingId } from '~/lib/utils'
 const localePath = useLocalePath()
 const { locale } = useI18n()
-const query = {
-  path: '/',
-  where: { language: locale.value }
-}
+
+const { data: list } = await useAsyncData('index', () => {
+  return queryCollection('readings').where('id', 'LIKE', `%${locale.value}%`).all()
+})
 </script>
 
 <template>
   <nav class="va-button-group">
-    <ContentList :query="query" v-slot="{ list }">
-      <NuxtLink
-        v-for="item in list"
-        :key="item._id"
-        :to="localePath(`/${item._dir}`)"
-        class="va-button va-button--action"
-      >
-        {{ item.title }}
-      </NuxtLink>
-    </ContentList>
+    <NuxtLink :to="localePath(`/${getReadingId(item.path)}`)" v-for="item in list" :key="item._id" class="va-button va-button--action">
+      {{ item.title }}
+    </NuxtLink>
   </nav>
 </template>
 

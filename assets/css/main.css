@@ -6,15 +6,21 @@
   font-display: swap;
 }
 
-body {
-  font-family: "Fira Sans", sans-serif;
-  margin: 0;
+.va-button,
+.va-input {
+  box-sizing: border-box;
 }
 
-a {
-  color: fuchsia;
+body {
+  font-family: 'Fira Sans', sans-serif;
+  margin: var(--va-space-1);
+}
+
+a,
+.va-button {
+  color: var(--va-color-primary);
 }
 
 a:active {
-  color: darkmagenta
+  color: darkmagenta;
 }

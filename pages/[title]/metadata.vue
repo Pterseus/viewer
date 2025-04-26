@@ -17,41 +17,20 @@ const fields = ['title', 'author', 'language', 'translator']
     </header>
     <template v-for="field in fields">
       <label v-if="data[field]"
-        >{{ $t(field) }}
-        <input
-          class="va-input"
-          :value="field === 'language' ? $t(data[field]) : data[field]"
-          type="text"
-          readonly
-        />
+        ><span>{{ $t(field) }}</span>
+        <input class="va-input" :value="field === 'language' ? $t(data[field]) : data[field]" type="text" readonly />
       </label>
     </template>
     <label>
-      {{ $t('date') }}
-      <input
-        class="va-input"
-        :value="new Date(data.date).getFullYear()"
-        type="text"
-        readonly
-      />
+      <span>{{ $t('date') }}</span>
+      <input class="va-input" :value="new Date(data.date).getFullYear()" type="text" readonly />
     </label>
     <div class="va-button-group va-button-group--horizontal">
       <label :style="{ flex: 1 }">
-        {{ $t('source') }}
-        <input
-          class="va-input"
-          :value="data._file"
-          :style="{ fontFamily: 'monospace' }"
-          type="text"
-          readonly
-        />
+        <span>{{ $t('source') }}</span>
+        <input class="va-input" :value="data._file" :style="{ fontFamily: 'monospace' }" type="text" readonly />
       </label>
-      <NuxtLink
-        class="va-button"
-        :to="`https://github.com/Pterseus/content/edit/main/data/${data._file}`"
-        :style="{ display: 'flex', alignItems: 'center' }"
-        >{{ $t('edit-on') }} GitHub</NuxtLink
-      >
+      <NuxtLink class="va-button" :to="`https://github.com/Pterseus/content/edit/main/data/${data._file}`">{{ $t('edit-on') }} GitHub</NuxtLink>
     </div>
   </div>
 </template>

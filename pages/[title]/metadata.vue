@@ -7,8 +7,6 @@ const { title } = route.params
 const { data } = await useAsyncData(route.path, () => {
   return queryCollection('readings').where('id', 'LIKE', `%${title}%`).where('id', 'LIKE', `%${locale.value}%`).first()
 })
-const fields = ['title', 'author', 'language', 'translator']
-console.log(data.value)
 </script>
 
 <template>
@@ -17,7 +15,7 @@ console.log(data.value)
     <header class="page-header">
       <h2>Metadata</h2>
     </header>
-    <template v-for="field in fields" v-if="data">
+    <template v-for="field in ['title', 'author', 'language', 'translator']" v-if="data">
       <label
         ><span>{{ $t(field) }}</span>
         <input class="va-input" :value="field === 'language' ? $t(data.meta[field] as string) : data.meta[field] || data.title" type="text" readonly />

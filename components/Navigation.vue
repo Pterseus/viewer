@@ -3,17 +3,21 @@ import { getReadingId } from '~/lib/utils'
 const localePath = useLocalePath()
 const { locale } = useI18n()
 
-const { data: list } = await useAsyncData('index', () => {
-  return queryCollection('readings').where('id', 'LIKE', `%${locale.value}%`).all()
-})
+const { data: readings } = await useAsyncData(
+  'readings',
+  () => {
+    return queryCollection('readings').where('id', 'LIKE', `%${locale.value}%`).all()
+  },
+  {
+    watch: [locale]
+  }
+)
 </script>
 
 <template>
   <nav class="va-button-group">
-    <NuxtLink :to="localePath(`/${getReadingId(item.path)}`)" v-for="item in list" :key="item._id" class="va-button va-button--action">
-      {{ item.title }}
+    <NuxtLink :to="localePath(`/${getReadingId(reading.path)}`)" v-for="reading in readings" :key="reading.id" class="va-button va-button--action">
+      {{ reading.title }}
     </NuxtLink>
   </nav>
 </template>
-
-<style></style>

@@ -16,7 +16,7 @@ const { data } = await useAsyncData(route.path, () => {
       <h2>{{ $t('toc') }}</h2>
     </header>
     <nav v-if="data?.body?.toc" class="va-button-group">
-      <NuxtLink class="va-button" v-for="link in data.body.toc.links" :to="{ path: localePath(`/${getReadingId(data.path)}`), hash: '#' + link.id }" external>{{ link.text }}</NuxtLink>
+      <NuxtLink class="va-button" v-for="link in data.body.toc.links" :to="{ path: localePath(`/${getReadingId(data.path)}`), hash: '#' + link.id }">{{ link.text }}</NuxtLink>
     </nav>
   </div>
 </template>

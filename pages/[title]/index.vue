@@ -7,7 +7,6 @@ const { title } = route.params
 const { data } = await useAsyncData(route.path, () => {
   return queryCollection('readings').where('id', 'LIKE', `%${title}%`).where('id', 'LIKE', `%${locale.value}%`).first()
 })
-console.log(data.value)
 </script>
 
 <template>

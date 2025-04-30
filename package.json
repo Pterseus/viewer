@@ -14,7 +14,7 @@
     "@nuxtjs/i18n": "^9.5.3",
     "nuxt": "^3.16.2",
     "postcss-nested": "^6.2.0",
-    "varvara-css": "^0.6.0",
+    "varvara-css": "^0.7.0",
     "vue": "latest"
   }
 }

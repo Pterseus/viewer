@@ -11,13 +11,16 @@ const { data } = await useAsyncData(route.path, () => {
 
 <template>
   <div class="va-button-group">
-    <breadcrumbs :links="[{ label: 'Viewer', to: 'index' }]" />
-    <header class="page-header" v-if="data">
-      <h2>{{ data.title }}</h2>
-    </header>
-    <!-- <language-selector /> -->
-    <NuxtLink v-if="data" :to="localePath(`/${getReadingId(data.path)}/metadata`)" class="va-button va-button--action">Metadata</NuxtLink>
-    <NuxtLink v-if="data" :to="localePath(`/${getReadingId(data.path)}/toc`)" class="va-button va-button--action">{{ $t('toc') }}</NuxtLink>
+    <div class="va-button-group">
+      <breadcrumbs :links="[{ label: 'Viewer', to: 'index' }]" />
+      <details class="va-collapse" v-if="data">
+        <summary class="page-header">
+          <h2>{{ data.title }}</h2>
+        </summary>
+        <NuxtLink v-if="data" :to="localePath(`/${getReadingId(data.path)}/metadata`)" class="va-button va-button--action">Metadata</NuxtLink>
+        <NuxtLink v-if="data" :to="localePath(`/${getReadingId(data.path)}/toc`)" class="va-button va-button--action">{{ $t('toc') }}</NuxtLink>
+      </details>
+    </div>
     <div class="content">
       <span class="label">Content</span>
       <NuxtLink v-if="data" :to="`https://github.com/Pterseus/content/edit/main/${data.id.replace('readings/', '')}`" target="_blank" class="label edit">
@@ -50,10 +53,15 @@ const { data } = await useAsyncData(route.path, () => {
 .page-header,
 .content {
   padding: var(--va-space-2) var(--va-space-3);
+}
+
+*:not(summary).page-header {
   border: var(--va-border-width) solid var(--va-border-color);
 }
 
 .content {
+  border: var(--va-border-width) solid var(--va-border-color);
+
   .label {
     font-size: var(--va-font-size-0);
   }
@@ -107,7 +115,7 @@ const { data } = await useAsyncData(route.path, () => {
   }
 }
 
-header h2 {
+.page-header h2 {
   text-transform: uppercase;
   margin: 0 !important;
 }

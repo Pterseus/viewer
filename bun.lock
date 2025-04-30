@@ -8,7 +8,7 @@
         "@nuxtjs/i18n": "^9.5.3",
         "nuxt": "^3.16.2",
         "postcss-nested": "^6.2.0",
-        "varvara-css": "^0.6.0",
+        "varvara-css": "^0.7.0",
         "vue": "latest",
       },
     },
@@ -1902,7 +1902,7 @@
 
     "validate-npm-package-license": ["validate-npm-package-license@3.0.4", "", { "dependencies": { "spdx-correct": "^3.0.0", "spdx-expression-parse": "^3.0.0" } }, "sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew=="],
 
-    "varvara-css": ["varvara-css@0.6.0", "", { "peerDependencies": { "typescript": "^5.0.0" } }, "sha512-xRENyrINkdPp1y2mwM3XqpRG4MEjX+DGRTILrMwfLngSeR4KnESBIeFKbUxVTxhzAmlWjmpyxgyIpHLBcJGKgw=="],
+    "varvara-css": ["varvara-css@0.7.0", "", { "peerDependencies": { "typescript": "^5.0.0" } }, "sha512-8owYRvUSOivt8gdOdSpIkm+YFBsObXbl/XjbsZ1C/7yy1n7HaCrlAHGT/HCwT7ERZPYs/lgtTVtLwuq+W2Q5Sg=="],
 
     "vfile": ["vfile@6.0.3", "", { "dependencies": { "@types/unist": "^3.0.0", "vfile-message": "^4.0.0" } }, "sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q=="],
 

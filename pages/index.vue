@@ -4,9 +4,7 @@
     <language-selector />
     <navigation />
     <div :style="{ padding: 'var(--va-space-3)' }">
-      <p>
-        <a href="https://github.com/Pterseus/content/tree/main/data">{{ $t('view-on') }} GitHub</a>
-      </p>
+      <a href="https://github.com/Pterseus/content/tree/main/data" class="va-link">{{ $t('view-on') }} GitHub</a>
     </div>
   </div>
 </template>
